@@ -1,0 +1,51 @@
+<div class="event-detail" layout="row">
+    <span flex=""></span>
+    <div layout="column">
+        <h1>{{title}}</h1>
+        <md-content layout-padding>
+            <form name="form" ng-submit="save()" class="md-whiteframe-z1" layout-padding>
+
+                <div layout layout-sm="column">
+                    <md-input-container>
+                        <label>Title</label>
+                        <input ng-model="event.title" placeholder="Name" required>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Alias</label>
+                        <input ng-model="event.alias" placeholder="Alias" required>
+                    </md-input-container>
+                </div>
+
+                <div layout layout-sm="column">
+                    <md-input-container>
+                        <label>Category</label>
+                        <md-select ng-model="event.category">
+                            <md-option ng-value="category" ng-repeat="category in categories" placeholder="Select a category">{{ category }}</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-switch ng-model="event.featured" aria-label="Featured">
+                        Featured
+                    </md-switch>
+                </div>
+
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>Description</label>
+                        <textarea ng-model="event.description" columns="1" md-maxlength="140" required></textarea>
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+                    <md-datepicker ng-model="event.dateStart" md-placeholder="Start Date" required></md-datepicker>
+                    <md-datepicker ng-model="event.dateEnd" md-placeholder="End Date" required md-min-date="event.dateStart"></md-datepicker>
+                </div>
+                <div layout="row">
+                    
+                    <md-button ng-href="/events" class="md-raised">Back</md-button>
+                    <input class="md-button md-raised md-accent" type="submit" value="Save">
+                </div>
+            </form>
+        </md-content>
+    </div>
+    <span flex=""></span>
+</div>

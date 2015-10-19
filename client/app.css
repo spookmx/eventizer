@@ -1,0 +1,14 @@
+.md-pane-open .md-datepicker-calendar {
+    background-color: white;
+}
+
+.md-datepicker-calendar-pane {
+    border-width: 0px;
+}
+
+.md-calendar-selected-date {
+    background: rgba(0, 0, 0, 0.30);
+}
+.md-calendar-date-disabled{
+    color: #ccc;
+}

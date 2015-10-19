@@ -1,0 +1,26 @@
+<div class="events-list" layout="row">
+  <span flex=""></span>
+  <div layout="column">
+    <h1>Events</h1>
+    <div layout="row" layout-padding="">
+      <md-input-container flex="65">
+        <label>Search</label>
+        <input type="Search" ng-model="search" placeholder="Search">
+      </md-input-container>
+      <md-select ng-model="orderProperty" flex="35" aria-label="Sort">
+        <md-option value="1">Ascending</md-option>
+        <md-option value="-1">Descending</md-option>
+      </md-select>
+    </div>
+
+    <ul>
+      <li dir-paginate="event in events | itemsPerPage: perPage" total-items="eventsCount.count" current-page='page'>
+        <p><a href="/events/{{event._id}}">{{ event.title }}</a> <button ng-click="remove(event)">&times;</button></p>
+      </li>
+    </ul>
+    <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+
+    <p>Total number of events: {{eventsCount.count}}</p>
+  </div>
+  <span flex=""></span>
+</div>
